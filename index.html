@@ -27,7 +27,7 @@
     <input type="number" id="inp" /><button onclick="sub()">Sub</button>
     <h1 id="name">Name</h1>
     <h1 id="state">State</h1>
-    <h1 id="geo">Geografical area</h1>
+    <h1 id="geo">Geografhical area</h1>
     <div>
       <h1 id="flora1">fl1</h1>
       <h1 id="flora2">fl2</h1>
@@ -88,7 +88,7 @@
         .on("value", gotdta2, errdta2);
       function gotdta2(val2) {
         document.getElementById("geo").innerHTML =
-          "Geografical area : " + val2.val();
+          "Geografhical area : " + val2.val();
       }
       function errdta2(err2) {
         window.alert(err);
