@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Firebase fetch</title>
+  </head>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+  <body>
+    <style>
+      body {
+        text-align: center;
+      }
+      div {
+        box-sizing: border-box;
+        border: 2px solid green;
+        margin-top: 5px;
+      }
+    </style>
+    <input type="text" id="inp" /><button onclick="sub()">Sub</button>
+    <h1 id="name">Name</h1>
+    <h1 id="state">State</h1>
+    <h1 id="geo">Geografical area</h1>
+    <div>
+      <h1 id="flora1">fl1</h1>
+      <h1 id="flora2">fl2</h1>
+      <h1 id="flora3">fl3</h1>
+      <h1 id="flora4">fl4</h1>
+      <h1 id="flora5">fl5</h1>
+    </div>
+    <div>
+      <h1 id="fauna1">fn1</h1>
+      <h1 id="fauna2">fn2</h1>
+      <h1 id="fauna3">fn3</h1>
+      <h1 id="fauna4">fn4</h1>
+      <h1 id="fauna5">fn5</h1>
+    </div>
+  </body>
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyBLgT9FyyTxL7S2WJMgOAmnqVa0F-kSUoI",
+      authDomain: "scienceproject-622e9.firebaseapp.com",
+      databaseURL: "https://scienceproject-622e9-default-rtdb.firebaseio.com",
+      projectId: "scienceproject-622e9",
+      storageBucket: "scienceproject-622e9.appspot.com",
+      messagingSenderId: "570469669001",
+      appId: "1:570469669001:web:67bb988654c62639760e58"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+
+  <script>
+    firebase = firebase.database();
+    function sub() {
+      inpv = document.getElementById("inp").value;
+      console.log(inpv);
+
+      firebase
+        .ref("Sheet1" + "/" + inpv + "/" + "Name of National Park")
+        .on("value", gotdta, errdta);
+      function gotdta(val) {
+        document.getElementById("name").innerHTML = "Name : " + val.val();
+      }
+      function errdta(err) {
+        window.alert(err);
+      }
+      firebase
+        .ref("Sheet1" + "/" + inpv + "/" + "State of National Park")
+        .on("value", gotdta1, errdta1);
+      function gotdta1(val1) {
+        document.getElementById("state").innerHTML = "state : " + val1.val();
+      }
+      function errdta1(err) {
+        window.alert(err);
+      }
+      // -----------------
+      firebase
+        .ref("Sheet1" + "/" + inpv + "/" + "Geografical area")
+        .on("value", gotdta2, errdta2);
+      function gotdta2(val2) {
+        document.getElementById("geo").innerHTML =
+          "Geografical area : " + val2.val();
+      }
+      function errdta2(err2) {
+        window.alert(err);
+      }
+      // -----------------
+      firebase
+        .ref("Sheet1" + "/" + inpv + "/" + "FLORA1")
+        .on("value", gotdta3, errdta3);
+      function gotdta3(val3) {
+        document.getElementById("flora1").innerHTML = val3.val();
+      }
+      function errdta3(err3) {
+        window.alert(err);
+      }
+      //
+      firebase
+        .ref("Sheet1" + "/" + inpv + "/" + "FLORA2")
+        .on("value", gotdta4, errdta4);
+      function gotdta4(val4) {
+        document.getElementById("flora2").innerHTML = val4.val();
+      }
+      function errdta4(err4) {
+        window.alert(err);
+      }
+      firebase
+        .ref("Sheet1" + "/" + inpv + "/" + "FLORA3")
+        .on("value", gotdta5, errdta5);
+      function gotdta5(val5) {
+        document.getElementById("flora3").innerHTML = val5.val();
+      }
+      function errdta5(err5) {
+        window.alert(err);
+      }
+      //
+      firebase
+        .ref("Sheet1" + "/" + inpv + "/" + "FLORA4")
+        .on("value", gotdta6, errdta6);
+      function gotdta6(val6) {
+        document.getElementById("flora4").innerHTML = val6.val();
+      }
+      function errdta6(err6) {
+        window.alert(err);
+      }
+      firebase
+        .ref("Sheet1" + "/" + inpv + "/" + "FLORA5")
+        .on("value", gotdta7, errdta7);
+      function gotdta7(val7) {
+        document.getElementById("flora5").innerHTML = val7.val();
+      }
+      function errdta7(err7) {
+        window.alert(err);
+      }
+      firebase
+        .ref("Sheet1" + "/" + inpv + "/" + "Fauna1")
+        .on("value", gotdta8, errdta8);
+      function gotdta8(val8) {
+        document.getElementById("fauna1").innerHTML = val8.val();
+      }
+      function errdta8(err8) {
+        window.alert(err);
+      }
+      firebase
+        .ref("Sheet1" + "/" + inpv + "/" + "Fnnn")
+        .on("value", gotdta9, errdta9);
+      function gotdta9(val9) {
+        document.getElementById("fauna2").innerHTML = val9.val();
+        console.log(val9.val());
+      }
+      function errdta9(err9) {
+        window.alert(err);
+      }
+      firebase
+        .ref("Sheet1" + "/" + inpv + "/" + "Fauna3")
+        .on("value", gotdta10, errdta10);
+      function gotdta10(val10) {
+        document.getElementById("fauna3").innerHTML = val10.val();
+      }
+      function errdta10(err10) {
+        window.alert(err);
+      }
+      firebase
+        .ref("Sheet1" + "/" + inpv + "/" + "Fauna4")
+        .on("value", gotdta11, errdta11);
+      function gotdta11(val11) {
+        document.getElementById("fauna4").innerHTML = val11.val();
+      }
+      function errdta11(err11) {
+        window.alert(err);
+      }
+      firebase
+        .ref("Sheet1" + "/" + inpv + "/" + "Fauna5")
+        .on("value", gotdta12, errdta12);
+      function gotdta12(val12) {
+        document.getElementById("fauna5").innerHTML = val12.val();
+      }
+      function errdta12(err12) {
+        window.alert(err);
+      }
+    }
+  </script>
+</html>
