@@ -151,7 +151,7 @@
         window.alert(err);
       }
       firebase
-        .ref("Sheet1" + "/" + inpv + "/" + "Fnnn")
+        .ref("Sheet1" + "/" + inpv + "/" + "Fauna2")
         .on("value", gotdta9, errdta9);
       function gotdta9(val9) {
         document.getElementById("fauna2").innerHTML = val9.val();
