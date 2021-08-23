@@ -65,7 +65,7 @@
       console.log(inpv);
 
       firebase
-        .ref("Sheet1" + "/" + inpv + "/" + "Name of National Park")
+        .ref("Sheet1" + "/" + inpv + "/" + "Name of Wildlife santuary")
         .on("value", gotdta, errdta);
       function gotdta(val) {
         document.getElementById("name").innerHTML = "Name : " + val.val();
