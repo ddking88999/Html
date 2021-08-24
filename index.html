@@ -75,7 +75,7 @@
         .ref("Sheet1" + "/" + inpv + "/" + "Name of Wildlife santuary")
         .on("value", gotdta, errdta);
       function gotdta(val) {
-        document.getElementById("name").innerHTML = "Name : " + val.val();
+        document.getElementById("name").innerHTML =  val.val();
       }
       function errdta(err) {
         window.alert(err);
